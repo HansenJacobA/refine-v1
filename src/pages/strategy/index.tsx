@@ -1,6 +1,5 @@
 import { Flex, Text } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
-import Greeting from "../../components/greeting";
 import Template from "../../components/template";
 import { sortStrategyRulesByTimesUsed } from "../../utilities/strategy";
 

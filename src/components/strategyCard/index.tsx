@@ -11,6 +11,7 @@ import {
 import { getProfile, upsertProfile } from "../../utilities/profile";
 import { Profile } from "../../types";
 import { createNewStrategyRule } from "../../utilities/strategy";
+import { LinedHeading } from "../linedHeading";
 
 export default function StrategyCard() {
   const [profile, setProfile] = useState<Profile>({ strategy: { rules: [] } });
@@ -29,9 +30,7 @@ export default function StrategyCard() {
   return (
     <Card w={300}>
       <CardBody textAlign="center">
-        <Heading as="h3" size="lg" noOfLines={1} textAlign="center" pb={2}>
-          Strategy
-        </Heading>
+        <LinedHeading text="Strategy" />
 
         {!profile?.strategy.rules.length && !editing ? (
           <Text m={5}>No rules to current strategy</Text>

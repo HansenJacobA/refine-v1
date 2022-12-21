@@ -24,6 +24,7 @@ export default function NoteForm() {
         onChange={function captureCurrentNote(e) {
           setNote(e.target.value);
         }}
+        h={150}
       />
       <Button
         size="sm"

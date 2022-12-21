@@ -28,6 +28,10 @@ export default function NoteForm() {
       <Button
         size="sm"
         onClick={function addNoteToProfile() {
+          if (!note.split(" ").join("").length) {
+            setNote("");
+            return;
+          }
           submitNote(note);
           setNote("");
           setNoteSubmitted(!noteSubmitted);

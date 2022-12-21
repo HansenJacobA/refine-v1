@@ -28,19 +28,26 @@ export default function LessonCard() {
               fontWeight="medium"
               size="sm"
               fontStyle="italic"
+              mb={2}
             >
               Top Three
             </Heading>
-            {profile.topThreeLessons.map(({ lesson }, index) => {
-              return (
-                <Flex key={index} gap={2}>
-                  <Text fontWeight="bold">{index + 1}.</Text>
-                  <Text fontWeight="light" w="90%">
-                    {lesson}
-                  </Text>
-                </Flex>
-              );
-            })}
+            {profile.topThreeLessons.length ? (
+              profile.topThreeLessons.map(({ lesson }, index) => {
+                return (
+                  <Flex key={index} gap={2}>
+                    <Text fontWeight="bold">{index + 1}.</Text>
+                    <Text fontWeight="light" w="90%">
+                      {lesson}
+                    </Text>
+                  </Flex>
+                );
+              })
+            ) : (
+              <Text textAlign="center" mt={5}>
+                Click me!
+              </Text>
+            )}
           </CardBody>
         </Card>
       }

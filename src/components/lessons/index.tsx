@@ -24,7 +24,7 @@ export default function LessonsForm() {
     <Flex w={300} direction="column" gap={5}>
       <Greeting />
       <Textarea
-        placeholder="Add a lesson learned"
+        placeholder="Add a lesson learned or upvote /downvote previous ones"
         value={lesson}
         onChange={function captureCurrentNote(e) {
           setLesson(e.target.value);
@@ -33,9 +33,14 @@ export default function LessonsForm() {
       <Button
         size="sm"
         onClick={function addNoteToProfile() {
+          if (!lesson.split(" ").join("").length) {
+            setLesson("");
+            return;
+          }
           submitLesson(lesson);
           setLesson("");
           setLessonSubmitted(!lessonSubmitted);
+          updateTopThreeLessonRanks();
         }}
       >
         Add Lesson

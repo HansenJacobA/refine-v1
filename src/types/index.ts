@@ -32,4 +32,5 @@ export interface Profile {
   strategiesUsedPercentage?: number;
   notes?: string[];
   lessons?: Lesson[];
+  topThreeLessons?: Lesson[];
 }

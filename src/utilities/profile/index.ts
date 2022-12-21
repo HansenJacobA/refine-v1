@@ -8,6 +8,7 @@ export const templateProfile: Profile = {
   strategiesUsedPercentage: 1.0, // (prev av + curr av) / 2
   notes: [],
   lessons: [],
+  topThreeLessons: [],
 };
 
 export const getProfile = (): Profile => {

@@ -5,6 +5,7 @@ import {
   addLessonDownVoteByLessonIndex,
   addLessonUpVoteByLessonIndex,
   submitLesson,
+  updateTopThreeLessonRanks,
 } from "../../utilities/lessons";
 import { getProfile } from "../../utilities/profile";
 import Greeting from "../greeting";
@@ -45,22 +46,24 @@ export default function LessonsForm() {
             <Text p={2} pl={4} pr={4} border="1px" borderRadius={15}>
               {lesson}
             </Text>
-            <Flex justify="center" gap={2} mt={2}>
+            <Flex justify="center" gap={5} mt={1}>
               <Text>{downVotes}</Text>
               <Button
-                size="xs"
+                size="sm"
                 onClick={function addDownVote() {
                   addLessonDownVoteByLessonIndex(index);
                   setLessonSubmitted(!lessonSubmitted);
+                  updateTopThreeLessonRanks();
                 }}
               >
                 −
               </Button>
               <Button
-                size="xs"
+                size="sm"
                 onClick={function addUpVote() {
                   addLessonUpVoteByLessonIndex(index);
                   setLessonSubmitted(!lessonSubmitted);
+                  updateTopThreeLessonRanks();
                 }}
               >
                 +

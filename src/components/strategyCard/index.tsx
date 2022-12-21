@@ -29,8 +29,8 @@ export default function StrategyCard() {
   return (
     <Card w={300}>
       <CardBody textAlign="center">
-        <Heading as="h3" size="md" noOfLines={1} textAlign="center">
-          ⏤ Strategy ⏤
+        <Heading as="h3" size="lg" noOfLines={1} textAlign="center" pb={2}>
+          Strategy
         </Heading>
 
         {!profile?.strategy.rules.length && !editing ? (

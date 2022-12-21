@@ -5,6 +5,7 @@ import Greeting from "../../components/greeting";
 import LessonCard from "../../components/lessonCard";
 import ReviewStrategyCard from "../../components/reviewStrategyCard";
 import LinkComponent from "../../components/linkComponent";
+import RuleRanksCard from "../../components/ruleRanksCard";
 
 export default function Home() {
   const isAfterFivePm = () => {
@@ -23,6 +24,7 @@ export default function Home() {
       {isAfterFivePm() ? (
         <LinkComponent url="/review" component={<ReviewStrategyCard />} />
       ) : null}
+      <RuleRanksCard />
     </Flex>
   );
 }

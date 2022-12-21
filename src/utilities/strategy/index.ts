@@ -19,3 +19,30 @@ export const resetStrategyReviewState = () => {
   });
   upsertProfile(profile);
 };
+
+export const getMostUsedRule = () => {
+  const profile = getValueByKey("profile");
+  const mostUsedRule = profile.strategy.rules.reduce(
+    (prev: Rule, curr: Rule) =>
+      curr.timesUsed > prev.timesUsed ? curr.timesUsed : prev.timesUsed,
+    profile.strategy.rules[0]
+  );
+  return mostUsedRule?.rule;
+};
+
+export const getLeastUsedRule = () => {
+  const profile = getValueByKey("profile");
+  const mostUsedRule = profile.strategy.rules.reduce(
+    (prev: Rule, curr: Rule) =>
+      curr.timesUsed > prev.timesUsed ? prev.timesUsed : curr.timesUsed,
+    profile.strategy.rules[0]
+  );
+  return mostUsedRule?.rule;
+};
+
+export const sortStrategyRulesByTimesUsed = () => {
+  const profile = getValueByKey("profile");
+  return profile.strategy.rules.sort((a: Rule, b: Rule) => {
+    return b.timesUsed - a.timesUsed;
+  });
+};

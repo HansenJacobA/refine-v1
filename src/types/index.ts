@@ -30,6 +30,7 @@ export interface Profile {
     [index: Rule["id"]]: number;
   };
   strategiesUsedPercentage?: number;
+  strategyReviewed?: boolean;
   notes?: string[];
   lessons?: Lesson[];
   topThreeLessons?: Lesson[];

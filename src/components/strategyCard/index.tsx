@@ -1,13 +1,5 @@
 import { useState, useEffect } from "react";
-import {
-  Button,
-  Card,
-  CardBody,
-  Flex,
-  Heading,
-  Input,
-  Text,
-} from "@chakra-ui/react";
+import { Button, Card, CardBody, Flex, Input, Text } from "@chakra-ui/react";
 import { getProfile, upsertProfile } from "../../utilities/profile";
 import { Profile } from "../../types";
 import { createNewStrategyRule } from "../../utilities/strategy";
@@ -69,6 +61,7 @@ export default function StrategyCard() {
               onClick={function addRuleToStrategy() {
                 const newStrategyRule = createNewStrategyRule(newRule);
                 profile.strategy.rules.push(newStrategyRule);
+                profile.strategiesUsedCount[newStrategyRule.id] = 0;
                 upsertProfile(profile);
                 setNewRule("");
               }}

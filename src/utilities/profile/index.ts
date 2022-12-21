@@ -6,6 +6,7 @@ export const templateProfile: Profile = {
   strategy: { rules: [] },
   strategiesUsedCount: {},
   strategiesUsedPercentage: 1.0, // (prev av + curr av) / 2
+  strategyReviewed: false,
   notes: [],
   lessons: [],
   topThreeLessons: [],

@@ -4,9 +4,10 @@ import setValueByKey from "../setValueByKey";
 
 export const templateProfile: Profile = {
   strategy: { rules: [] },
-  strategiesUsedCount: {},
-  strategiesUsedPercentage: 1.0, // (prev av + curr av) / 2
+  strategiesUsedPercentage: 1.0,
   strategyReviewed: false,
+  numStrategyReviews: 0,
+  dateLastStrategyReview: "",
   notes: [],
   lessons: [],
   topThreeLessons: [],

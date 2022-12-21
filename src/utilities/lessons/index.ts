@@ -1,10 +1,8 @@
-import { nanoid } from "nanoid";
 import { getProfile, upsertProfile } from "../profile";
 
 export const submitLesson = (lesson: string) => {
   const profile = getProfile();
   profile.lessons.unshift({
-    id: nanoid(),
     lesson,
     upVotes: 0,
     downVotes: 0,

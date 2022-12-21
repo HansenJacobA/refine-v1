@@ -2,14 +2,12 @@ export interface NavBarLinkNameAndUrl {
   linkName: string;
   url: string;
 }
-export interface RequiredTypes {
-  id?: string;
-  createdAt?: string;
-  updatedAt?: string;
-}
 
-export interface Rule extends RequiredTypes {
+export interface Rule {
   rule?: string;
+  timesUsed?: number;
+  timesUsedPercentage?: number;
+  ruleReviewed?: boolean;
 }
 
 export interface Strategy {
@@ -17,7 +15,6 @@ export interface Strategy {
 }
 
 export interface Lesson {
-  id: string;
   lesson: string;
   upVotes: number;
   downVotes: number;
@@ -26,11 +23,10 @@ export interface Lesson {
 
 export interface Profile {
   strategy?: Strategy;
-  strategiesUsedCount?: {
-    [index: Rule["id"]]: number;
-  };
   strategiesUsedPercentage?: number;
   strategyReviewed?: boolean;
+  numStrategyReviews?: number;
+  dateLastStrategyReview?: string;
   notes?: string[];
   lessons?: Lesson[];
   topThreeLessons?: Lesson[];

@@ -1,9 +1,16 @@
 import { useState, useEffect } from "react";
-import { Button, Card, CardBody, Flex, Input, Text } from "@chakra-ui/react";
+import {
+  Button,
+  Card,
+  CardBody,
+  Flex,
+  Heading,
+  Input,
+  Text,
+} from "@chakra-ui/react";
 import { getProfile, upsertProfile } from "../../utilities/profile";
 import { Profile } from "../../types";
 import { createNewStrategyRule } from "../../utilities/strategy";
-import { LinedHeading } from "../linedHeading";
 
 export default function StrategyCard() {
   const [profile, setProfile] = useState<Profile>({ strategy: { rules: [] } });
@@ -22,7 +29,9 @@ export default function StrategyCard() {
   return (
     <Card w={300}>
       <CardBody textAlign="center">
-        <LinedHeading text="Strategy" />
+        <Heading as="h3" size="lg" noOfLines={1} pb={2}>
+          Strategy
+        </Heading>
 
         {!profile?.strategy.rules.length && !editing ? (
           <Text m={5}>No rules to current strategy</Text>
@@ -61,7 +70,6 @@ export default function StrategyCard() {
               onClick={function addRuleToStrategy() {
                 const newStrategyRule = createNewStrategyRule(newRule);
                 profile.strategy.rules.push(newStrategyRule);
-                profile.strategiesUsedCount[newStrategyRule.id] = 0;
                 upsertProfile(profile);
                 setNewRule("");
               }}

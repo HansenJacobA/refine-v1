@@ -1,8 +1,7 @@
-import { Card, CardBody, Flex, Text } from "@chakra-ui/react";
+import { Card, CardBody, Flex, Heading, Text } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import { Profile } from "../../types";
 import { getProfile } from "../../utilities/profile";
-import { LinedHeading } from "../linedHeading";
 
 export default function ReviewStrategyCard() {
   const [profile, setProfile] = useState<Profile>({
@@ -17,7 +16,9 @@ export default function ReviewStrategyCard() {
   return (
     <Card w={300}>
       <CardBody textAlign="center">
-        <LinedHeading text="EOD Review" />
+        <Heading as="h3" size="lg" noOfLines={1} mb={7}>
+          Review
+        </Heading>
         {profile.strategyReviewed ? (
           <Flex>Strategy Stats</Flex>
         ) : (

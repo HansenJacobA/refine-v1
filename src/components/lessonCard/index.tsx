@@ -2,7 +2,6 @@ import { Card, CardBody, Flex, Heading, Text } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import { Profile } from "../../types";
 import { getProfile } from "../../utilities/profile";
-import { LinedHeading } from "../linedHeading";
 import LinkComponent from "../linkComponent";
 
 export default function LessonCard() {
@@ -21,7 +20,9 @@ export default function LessonCard() {
       component={
         <Card w={300}>
           <CardBody>
-            <LinedHeading text="Lessons" />
+            <Heading as="h3" size="lg" noOfLines={1} mb={3} textAlign="center">
+              Lessons
+            </Heading>
             <Heading
               as="h4"
               textAlign="center"

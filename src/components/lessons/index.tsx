@@ -29,7 +29,6 @@ export default function LessonsForm() {
         }}
       />
       <Button
-        size="sm"
         onClick={function addNoteToProfile() {
           if (!lesson.split(" ").join("").length) {
             setLesson("");

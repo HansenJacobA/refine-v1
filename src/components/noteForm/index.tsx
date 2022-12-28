@@ -25,7 +25,6 @@ export default function NoteForm() {
         h={150}
       />
       <Button
-        size="sm"
         onClick={function addNoteToProfile() {
           if (!note.split(" ").join("").length) {
             setNote("");

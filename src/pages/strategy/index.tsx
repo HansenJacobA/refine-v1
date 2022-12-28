@@ -21,7 +21,13 @@ export default function Strategy() {
     >
       <Template />
       {orderedRules.length ? (
-        <Flex>
+        <Flex
+          justify="center"
+          align="center"
+          direction="column"
+          gap={5}
+          w={300}
+        >
           <Text fontWeight="semibold" textAlign="center">
             Strategy rules sorted by most used:
           </Text>

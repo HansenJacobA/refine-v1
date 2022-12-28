@@ -8,7 +8,6 @@ import {
   updateTopThreeLessonRanks,
 } from "../../utilities/lessons";
 import { getProfile } from "../../utilities/profile";
-import Greeting from "../greeting";
 
 export default function LessonsForm() {
   const [lesson, setLesson] = useState("");
@@ -22,7 +21,6 @@ export default function LessonsForm() {
 
   return (
     <Flex w={300} direction="column" gap={5}>
-      <Greeting />
       <Textarea
         placeholder="Add a lesson learned or upvote /downvote previous ones"
         value={lesson}

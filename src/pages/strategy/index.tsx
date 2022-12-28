@@ -20,19 +20,28 @@ export default function Strategy() {
       w={300}
     >
       <Template />
-      <Text fontWeight="semibold" textAlign="center">
-        Strategy rules sorted by most used:
-      </Text>
-      <Flex direction="column" mt={5} gap={5} textAlign="left">
-        {orderedRules.map(({ rule }, index) => (
-          <Flex key={index} gap={2}>
-            <Text fontWeight="bold">{index + 1}.</Text>
-            <Text fontWeight="light" w="90%">
-              {rule}
-            </Text>
+      {orderedRules.length ? (
+        <Flex>
+          <Text fontWeight="semibold" textAlign="center">
+            Strategy rules sorted by most used:
+          </Text>
+          <Flex direction="column" mt={5} gap={5} textAlign="left">
+            {orderedRules.map(({ rule }, index) => (
+              <Flex key={index} gap={2}>
+                <Text fontWeight="bold">{index + 1}.</Text>
+                <Text fontWeight="light" w="90%">
+                  {rule}
+                </Text>
+              </Flex>
+            ))}
           </Flex>
-        ))}
-      </Flex>
+        </Flex>
+      ) : (
+        <Text textAlign="center">
+          It is very important to have a strategy with rules to refine for
+          success.
+        </Text>
+      )}
     </Flex>
   );
 }

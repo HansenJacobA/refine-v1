@@ -1,5 +1,4 @@
 import { Flex } from "@chakra-ui/react";
-import Greeting from "../../components/greeting";
 import ReviewStrategy from "../../components/reviewStrategy";
 import Template from "../../components/template";
 
@@ -14,7 +13,6 @@ export default function Review() {
       w={300}
     >
       <Template />
-      <Greeting />
       <ReviewStrategy />
     </Flex>
   );

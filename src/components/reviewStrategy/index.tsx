@@ -63,7 +63,6 @@ export default function ReviewStrategy() {
             </Flex>
           ))}
           <Button
-            size="sm"
             mt={5}
             onClick={function completeDailyStrategyReview() {
               profile.strategyReviewed = true;

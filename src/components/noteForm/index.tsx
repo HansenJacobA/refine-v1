@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { Profile } from "../../types";
 import { submitNote } from "../../utilities/notes";
 import { getProfile } from "../../utilities/profile";
-import Greeting from "../greeting";
 
 export default function NoteForm() {
   const [note, setNote] = useState("");
@@ -17,7 +16,6 @@ export default function NoteForm() {
 
   return (
     <Flex w={300} direction="column" gap={5}>
-      <Greeting />
       <Textarea
         placeholder="Add a note"
         value={note}

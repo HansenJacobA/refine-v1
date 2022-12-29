@@ -66,7 +66,6 @@ export default function StrategyCard() {
               value={newRule}
             />
             <Button
-              size="sm"
               onClick={function addRuleToStrategy() {
                 const newStrategyRule = createNewStrategyRule(newRule);
                 profile.strategy.rules.push(newStrategyRule);

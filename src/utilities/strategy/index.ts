@@ -11,7 +11,7 @@ export const createNewStrategyRule = (rule: string): Rule => {
   };
 };
 
-export const resetStrategyReviewState = () => {
+export const resetStrategyReviewState = (): void => {
   const profile = getValueByKey("profile");
   profile.strategyReviewed = false;
   profile.strategy.rules.forEach((rule: Rule) => {
@@ -20,27 +20,28 @@ export const resetStrategyReviewState = () => {
   upsertProfile(profile);
 };
 
-export const getMostUsedRule = () => {
+export const getMostUsedRule = (): string => {
   const profile = getValueByKey("profile");
   const mostUsedRule = profile.strategy.rules.reduce(
-    (prev: Rule, curr: Rule) =>
-      curr.timesUsed > prev.timesUsed ? curr.timesUsed : prev.timesUsed,
+    (prev: Rule, curr: Rule) => {
+      console.log({ prev, curr });
+      return curr.timesUsed >= prev.timesUsed ? curr : prev;
+    },
     profile.strategy.rules[0]
   );
-  return mostUsedRule?.rule;
+  return mostUsedRule?.rule || "None";
 };
 
-export const getLeastUsedRule = () => {
+export const getLeastUsedRule = (): string => {
   const profile = getValueByKey("profile");
-  const mostUsedRule = profile.strategy.rules.reduce(
-    (prev: Rule, curr: Rule) =>
-      curr.timesUsed > prev.timesUsed ? prev.timesUsed : curr.timesUsed,
+  const leastUsedRule = profile.strategy.rules.reduce(
+    (prev: Rule, curr: Rule) => (curr.timesUsed > prev.timesUsed ? prev : curr),
     profile.strategy.rules[0]
   );
-  return mostUsedRule?.rule;
+  return leastUsedRule?.rule || "None";
 };
 
-export const sortStrategyRulesByTimesUsed = () => {
+export const sortStrategyRulesByTimesUsed = (): Rule[] => {
   const profile = getValueByKey("profile");
   return profile.strategy.rules.sort((a: Rule, b: Rule) => {
     return b.timesUsed - a.timesUsed;

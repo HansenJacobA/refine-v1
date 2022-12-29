@@ -82,7 +82,7 @@ export default function ReviewStrategy() {
                 Math.round(
                   ((percentRulesUsedToday + profile.strategiesUsedPercentage) /
                     2) *
-                    1000
+                    10
                 ) / 10;
 
               profile.dateLastStrategyReview = new Date().toLocaleDateString();

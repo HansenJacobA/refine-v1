@@ -8,10 +8,15 @@ export default function ReviewStrategyCard() {
   const [profile, setProfile] = useState<Profile>({
     strategy: { rules: [] },
   });
+  const [mostUsedRule, setMostUsedRule] = useState("None");
+  const [leastUsedRule, setLeastUsedRule] = useState("None");
 
   useEffect(() => {
     const storedProfile = getProfile();
     setProfile(storedProfile);
+
+    setMostUsedRule(getMostUsedRule());
+    setLeastUsedRule(getLeastUsedRule());
   }, []);
 
   return (
@@ -27,12 +32,12 @@ export default function ReviewStrategyCard() {
 
             <Text fontWeight="bold">Most used rule: </Text>
             <Text mb={2} fontStyle="italic">
-              {getMostUsedRule() || "None"}
+              {mostUsedRule}
             </Text>
 
             <Text fontWeight="bold">Least used rule: </Text>
             <Text mb={2} fontStyle="italic">
-              {getLeastUsedRule() || "None"}
+              {leastUsedRule}
             </Text>
           </Flex>
         ) : (

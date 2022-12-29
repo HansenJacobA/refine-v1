@@ -34,16 +34,18 @@ export default function LessonCard() {
               Top Three
             </Heading>
             {profile.topThreeLessons.length ? (
-              profile.topThreeLessons.map(({ lesson }, index) => {
-                return (
-                  <Flex key={index} gap={2}>
-                    <Text fontWeight="bold">{index + 1}.</Text>
-                    <Text fontWeight="light" w="90%">
-                      {lesson}
-                    </Text>
-                  </Flex>
-                );
-              })
+              <Flex direction="column" gap={5}>
+                {profile.topThreeLessons.map(({ lesson }, index) => {
+                  return (
+                    <Flex key={index} gap={2}>
+                      <Text fontWeight="bold">{index + 1}.</Text>
+                      <Text fontWeight="light" w="90%">
+                        {lesson}
+                      </Text>
+                    </Flex>
+                  );
+                })}
+              </Flex>
             ) : (
               <Text textAlign="center" mt={5}>
                 Click me!

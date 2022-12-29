@@ -11,7 +11,14 @@ export default function Strategy() {
   }, []);
 
   return (
-    <Flex justify="center" align="center" direction="column" mb={10} w={300}>
+    <Flex
+      justify="center"
+      align="center"
+      direction="column"
+      mb={10}
+      gap={5}
+      w={300}
+    >
       <Template />
       {orderedRules.length ? (
         <Flex
